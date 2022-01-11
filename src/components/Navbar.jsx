@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { DarkModeToggle } from "./"
+import { DarkModeToggle } from "./utils"
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   return (
