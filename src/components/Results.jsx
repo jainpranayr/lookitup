@@ -11,7 +11,7 @@ import {
 } from "./utils"
 
 const Results = () => {
-  const { loading, getResults } = useResultContext()
+  const { loading, results, getResults } = useResultContext()
   const location = useLocation()
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Results = () => {
 
   switch (location.pathname) {
     case "/search":
-      return <SearchResults />
+      return <SearchResults results={results} />
     case "/images":
       return <ImagesResults />
     case "/news":
