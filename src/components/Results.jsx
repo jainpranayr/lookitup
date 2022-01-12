@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 
 import { useResultContext } from "../contexts/ResultContextProvider"
@@ -6,14 +7,19 @@ import {
   ImagesResults,
   NewsResults,
   VideosResults,
-  LoadingSpinner,
+  Loader,
 } from "./utils"
 
 const Results = () => {
-  const { loading } = useResultContext()
+  const { loading, getResults } = useResultContext()
   const location = useLocation()
 
-  if (loading) return <LoadingSpinner />
+  useEffect(() => {
+    getResults("/search/q=Elon Musk&num=40")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  if (loading) return <Loader />
 
   switch (location.pathname) {
     case "/search":
