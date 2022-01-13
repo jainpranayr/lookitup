@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react"
+import { useResultContext } from "../../contexts/ResultContextProvider"
+import { useViewportContext } from "../../contexts/ViewportContextProvider"
 
-const SearchResults = ({ results }) => {
-  const [width, setWidth] = useState(window.innerWidth)
-
-  const handleResize = () => {
-    setWidth(window.innerWidth)
-  }
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+const SearchResults = () => {
+  const { results } = useResultContext()
+  const { width } = useViewportContext()
+  console.log(width)
 
   return (
     <div className='flex flex-wrap space-y-6 xl:px-40 md:px-20'>
