@@ -4,7 +4,6 @@ import { useViewportContext } from "../../contexts/ViewportContextProvider"
 const SearchResults = () => {
   const { results } = useResultContext()
   const { width } = useViewportContext()
-  console.log(width)
 
   return (
     <div className='flex flex-wrap space-y-6 xl:px-40 md:px-20'>

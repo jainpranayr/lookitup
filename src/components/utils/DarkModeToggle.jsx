@@ -1,10 +1,11 @@
-const DarkModeToggle = ({ darkMode, setDarkMode }) => {
+import { useDarkModeContext } from "../../contexts/DarkModeContextProvider"
+
+const DarkModeToggle = () => {
+  const { darkMode, handleDarkMode } = useDarkModeContext()
+
   return (
     <div className='flex justify-center items-center'>
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className='focus:outline-none'
-      >
+      <button onClick={handleDarkMode} className='focus:outline-none'>
         {darkMode ? (
           <svg
             className='w-6 h-6 md:w-8 md:h-8'
