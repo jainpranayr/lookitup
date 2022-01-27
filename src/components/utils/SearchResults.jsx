@@ -1,6 +1,10 @@
 import { useResultContext } from "../../contexts/ResultContextProvider"
 import { useViewportContext } from "../../contexts/ViewportContextProvider"
 
+const truncate = (str = "", len = 30) => {
+  return str.length <= len ? str : str.slice(0, len) + "..."
+}
+
 const SearchResults = () => {
   const { results } = useResultContext()
   const { width } = useViewportContext()
@@ -13,23 +17,21 @@ const SearchResults = () => {
           className='w-full bg-white dark:bg-gray-800 p-5 rounded-2xl hover:shadow-sm'
         >
           <a href={link} target='_blank' rel='noreferrer'>
-            <p className='text-sm'>
-              {link?.length > 30 ? link.substring(0, 30) : link}
-            </p>
+            <p className='text-sm'>{truncate(link, 30)}</p>
             <h1 className='text-lg hover:underline dark:text-blue-300 text-blue-700'>
               {title}
             </h1>
             <p>
               {width <= 400
-                ? description.substring(0, 80)
+                ? truncate(description, 80)
                 : width <= 640
-                ? description.substring(0, 100)
+                ? truncate(description, 100)
                 : width <= 768
-                ? description.substring(0, 200)
+                ? truncate(description, 200)
                 : width <= 1024
-                ? description.substring(0, 300)
+                ? truncate(description, 300)
                 : width <= 1280
-                ? description.substring(0, 400)
+                ? truncate(description, 400)
                 : description}
             </p>
           </a>
