@@ -1,9 +1,6 @@
 import { useResultContext } from "../../contexts/ResultContextProvider"
 import { useViewportContext } from "../../contexts/ViewportContextProvider"
-
-const truncate = (str = "", len = 30) => {
-  return str.length <= len ? str : str.slice(0, len) + "..."
-}
+import { truncate } from "./truncate"
 
 const SearchResults = () => {
   const { results } = useResultContext()

@@ -21,10 +21,9 @@ const Results = () => {
       if (location.pathname === "/videos") {
         getResults(`/search/q=${searchTerm} videos`)
       } else {
-        getResults(`${location.pathname}/q=${searchTerm}&num=50`)
+        getResults(`${location.pathname}/q=${searchTerm}&num=40`)
       }
     }
-    getResults("/search/q=Elon Musk&num=40")
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm, location.pathname])
 
