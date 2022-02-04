@@ -1,14 +1,12 @@
-import { useResultContext } from "../../contexts/ResultContextProvider"
 import { useViewportContext } from "../../contexts/ViewportContextProvider"
 import { truncate } from "./truncate"
 
-const SearchResults = () => {
-  const { results } = useResultContext()
+const SearchResults = ({ results }) => {
   const { width } = useViewportContext()
 
   return (
     <div className='flex flex-wrap space-y-6 xl:px-40 md:px-20'>
-      {results?.results?.map(({ link, title, description }, idx) => (
+      {results?.map(({ link, title, description }, idx) => (
         <div
           key={idx}
           className='w-full bg-white dark:bg-gray-800 p-5 rounded-2xl hover:shadow-sm'
