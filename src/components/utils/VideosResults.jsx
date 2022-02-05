@@ -1,5 +1,11 @@
+import { useDarkModeContext } from "../../contexts/DarkModeContextProvider"
+
 const VideoResults = () => {
-  return <div>Video Results will appear here</div>
+  const { darkMode } = useDarkModeContext()
+
+  return (
+    <div className={darkMode ? "dark" : ""}>Video Results will appear here</div>
+  )
 }
 
 export default VideoResults
