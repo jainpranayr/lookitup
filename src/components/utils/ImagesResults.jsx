@@ -1,13 +1,15 @@
+import { useResultContext } from "../../contexts/ResultContextProvider"
 import { useViewportContext } from "../../contexts/ViewportContextProvider"
 import { truncate } from "./truncate"
 
-const ImageResults = ({ image_results }) => {
+const ImageResults = () => {
+  const { results } = useResultContext()
   const { width } = useViewportContext()
 
   return (
     <div className='flex items-center justify-center'>
       <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-6 gap-2'>
-        {image_results?.map(({ image, link: { href, title } }, idx) => (
+        {results?.map(({ image, link: { href, title } }, idx) => (
           <a
             href={href}
             className='sm:p-3 p-5'

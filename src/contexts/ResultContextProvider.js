@@ -23,7 +23,14 @@ export const ResultContextProvider = ({ children }) => {
 
     const data = await res.json()
 
-    setResults(data)
+    if (url.includes("/news")) {
+      setResults(data.entries)
+    } else if (url.includes("/images")) {
+      setResults(data.image_results)
+    } else {
+      setResults(data.results)
+    }
+
     setLoading(false)
   }
 

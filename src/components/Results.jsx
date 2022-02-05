@@ -13,12 +13,7 @@ import {
 } from "./utils"
 
 const Results = () => {
-  const {
-    results: { results, image_results, entries: news },
-    loading,
-    getResults,
-    searchTerm,
-  } = useResultContext()
+  const { loading, getResults, searchTerm } = useResultContext()
   const location = useLocation()
 
   useEffect(() => {
@@ -39,11 +34,11 @@ const Results = () => {
       {(() => {
         switch (location.pathname) {
           case "/search":
-            return <SearchResults results={results} />
+            return <SearchResults />
           case "/images":
-            return <ImagesResults image_results={image_results} />
+            return <ImagesResults />
           case "/news":
-            return <NewsResults news={news} />
+            return <NewsResults />
           case "/videos":
             return <VideosResults />
           default:

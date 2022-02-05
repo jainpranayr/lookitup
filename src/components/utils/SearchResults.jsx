@@ -1,7 +1,9 @@
+import { useResultContext } from "../../contexts/ResultContextProvider"
 import { useViewportContext } from "../../contexts/ViewportContextProvider"
 import { truncate } from "./truncate"
 
-const SearchResults = ({ results }) => {
+const SearchResults = () => {
+  const { results } = useResultContext()
   const { width } = useViewportContext()
 
   return (
