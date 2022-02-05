@@ -3,27 +3,14 @@ import { useLocation } from "react-router-dom"
 
 import { useResultContext } from "../contexts/ResultContextProvider"
 import { ViewportContextProvider } from "../contexts/ViewportContextProvider"
-
-import {
-  SearchResults,
-  ImagesResults,
-  NewsResults,
-  VideosResults,
-  Loader,
-} from "./utils"
+import { SearchResults, ImagesResults, NewsResults, Loader } from "./utils"
 
 const Results = () => {
   const { loading, getResults, searchTerm } = useResultContext()
   const location = useLocation()
 
   useEffect(() => {
-    if (searchTerm) {
-      if (location.pathname === "/videos") {
-        getResults(`/search/q=${searchTerm} videos`)
-      } else {
-        getResults(`${location.pathname}/q=${searchTerm}&num=40`)
-      }
-    }
+    if (searchTerm) getResults(`${location.pathname}/q=${searchTerm}&num=40`)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm, location.pathname])
 
@@ -39,8 +26,6 @@ const Results = () => {
             return <ImagesResults />
           case "/news":
             return <NewsResults />
-          case "/videos":
-            return <VideosResults />
           default:
             return "ERROR"
         }
