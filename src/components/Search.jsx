@@ -12,7 +12,7 @@ const Search = () => {
   }
 
   return (
-    <div className='flex items-center'>
+    <form className='flex items-center'>
       <input
         value={text}
         type='text'
@@ -27,7 +27,7 @@ const Search = () => {
       >
         <p className='font-semibold text-sm'>Search</p>
       </button>
-    </div>
+    </form>
   )
 }
 
