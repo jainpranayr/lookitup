@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom"
 
-import { DarkModeToggle } from "./utils"
+import { DarkModeToggle, Links } from "./utils"
+import Search from "./Search"
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   return (
-    <div className='p-3 flex flex-wrap justify-center sm:justify-between items-center border-b dark:border-gray-700 border-gray-200'>
-      <div className='flex justify-between items-center space-x-5 w-screen xl:px-40 md:px-20'>
+    <div className='flex flex-col pt-2 px-3 xl:px-40 md:px-20 border-b-2 dark:border-b-gray-800 border-gray-300'>
+      <div className='flex items-center justify-between'>
         <Link to='/'>
-          <p className='text-2xl font-extrabold'>lookitup</p>
+          <h1 className='text-xl md:text-2xl font-bold'>lookitup</h1>
         </Link>
         <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
+      <Search />
+      <Links />
     </div>
   )
 }

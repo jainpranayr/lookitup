@@ -8,6 +8,7 @@ import { SearchResults, ImagesResults, NewsResults, Loader } from "./utils"
 const Results = () => {
   const { loading, getResults, searchTerm } = useResultContext()
   const location = useLocation()
+  console.log(searchTerm)
 
   useEffect(() => {
     if (searchTerm) getResults(`${location.pathname}/q=${searchTerm}&num=40`)
