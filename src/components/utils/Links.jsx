@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from 'react-router-dom'
 
 const links = [
-  { url: "/search", text: "All" },
-  { url: "/news", text: "News" },
-  { url: "/images", text: "Images" },
+  { url: '/search', text: 'All' },
+  { url: '/news', text: 'News' },
+  { url: '/image', text: 'Images' },
 ]
 
 const Links = () => {
@@ -15,10 +15,9 @@ const Links = () => {
           to={url}
           className={({ isActive }) =>
             isActive
-              ? "text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-[1.5px]"
-              : ""
-          }
-        >
+              ? 'text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-[1.5px]'
+              : ''
+          }>
           {text}
         </NavLink>
       ))}
