@@ -1,9 +1,9 @@
-import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
 
-import { useResultContext } from '../contexts/ResultContextProvider'
-import { ViewportContextProvider } from '../contexts/ViewportContextProvider'
-import { SearchResults, ImagesResults, NewsResults, Loader } from './utils'
+import { useResultContext } from "../contexts/ResultContextProvider"
+import { ViewportContextProvider } from "../contexts/ViewportContextProvider"
+import { SearchResults, ImagesResults, NewsResults, Loader } from "./utils"
 
 const Results = () => {
   const { loading, getResults, searchTerm } = useResultContext()
@@ -22,14 +22,14 @@ const Results = () => {
     <ViewportContextProvider>
       {(() => {
         switch (location.pathname) {
-          case '/search':
+          case "/search":
             return <SearchResults />
-          case '/image':
+          case "/images":
             return <ImagesResults />
-          case '/news':
+          case "/news":
             return <NewsResults />
           default:
-            return 'ERROR'
+            return "ERROR"
         }
       })()}
     </ViewportContextProvider>

@@ -1,7 +1,7 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate } from "react-router-dom"
 
-import Results from './Results'
-import NotFound from './NotFound'
+import Results from "./Results"
+import NotFound from "./NotFound"
 
 const Routing = () => {
   return (
@@ -10,7 +10,7 @@ const Routing = () => {
         <Route path='*' element={<NotFound />} />
         <Route exact path='/' element={<Navigate to='/search' />} />
         <Route exact path='/search' element={<Results />} />
-        <Route path='/image' element={<Results />} />
+        <Route path='/images' element={<Results />} />
         <Route path='/news' element={<Results />} />
       </Routes>
     </div>
